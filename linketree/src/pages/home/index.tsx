@@ -1,4 +1,6 @@
+import { Social } from "../../components/social/intex"
 
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa"
 export function Home(){
     return(
         <div className="flex flex-col w-full py-4 items-center justify-center">
@@ -12,8 +14,24 @@ export function Home(){
                     </a>
                 </section>
 
-                <footer className="flex justify-center gap-3 my-4 ">
+                 <section className="bg-white mb-4 w-full py-2 rounded-lg select-none transition-transform hover:scale-105 cursor-pointer">
+                    <a href="#" className="text-base md:text-lg">
+                        <p>Nosso instagram</p>
+                    </a>
+                </section>
 
+                <footer className="flex justify-center gap-3 my-4 ">
+                    <Social url="https://facebook.com/sujeitoprogramador">
+                    <FaFacebook size={35} color="#fff" />
+                    </Social>
+
+                     <Social url="https://youtube.com/sujeitoprogramador">
+                    <FaYoutube size={35} color="#fff" />
+                    </Social>
+
+                     <Social url="https://instagram.com/sujeitoprogramador">
+                    <FaInstagram size={35} color="#fff" />
+                    </Social>
                 </footer>
             </main>
         </div>
