@@ -1,19 +1,31 @@
-import { Link } from "react-router-dom"
-import { Input } from "../../components/input"
 import { useState, type SubmitEvent } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { Input } from "../../components/input"
 
 import { auth } from "../../services/firebaseConection"
+import { signInWithEmailAndPassword } from "firebase/auth"
 
 export function Login(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
     function handleSubmit(e: SubmitEvent){
         e.preventDefault()
 
-        console.log({
-            email: email,
-            password: password
+        if(email === "" || password === ''){
+            alert("Preencha todos os campos!")
+            return
+        }
+
+        signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+            console.log("Logado com sucesso!")
+            navigate("/admin", {replace: true})
+        })
+        .catch((error) => {
+            console.log("ERRO AO FAZER O LOGIN:")
+            console.log(error)
         })
     }
 
