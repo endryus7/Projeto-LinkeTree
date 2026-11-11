@@ -12,6 +12,8 @@ import {
   getDoc,
 } from "firebase/firestore";
 
+import { Link } from "react-router-dom";
+
 interface LinkProps {
   id: string;
   name: string;
@@ -109,6 +111,13 @@ export function Home() {
             </Social>
           </footer>
         )}
+
+        <Link
+          to="/login"
+          className="h-9 bg-blue-600 rounded border-0 text-lg font-medium text-white flex justify-center items-center"
+        >
+          <button>Login</button>
+        </Link>
       </main>
     </div>
   );
